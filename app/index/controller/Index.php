@@ -14,4 +14,15 @@ class Index extends Controller
     {
         return $this->fetch();
     }
+    
+    /*
+     *
+     * 模板继承
+     */
+    public function base(){
+        return $this->fetch();
+    }
+
+
+
 }
