@@ -143,10 +143,9 @@ return [
     // 视图输出字符串内容替换
     'view_replace_str'       => [
         '__PUBLIC__' => '/public',
-        '__HUI__'    => '/public/static/h-ui',
-        '__CSS__'    => '/public/static/h-ui/css',
-        '__JS__'     => '/public/static/h-ui/js',
-        '__SRC__'    => '/public/static/h-ui/src',
+        '__CSS__'    => '/public/static/css',
+        '__JS__'     => '/public/static/js',
+        '__IMG__'    => '/public/static/images',
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

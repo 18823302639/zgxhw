@@ -1,7 +1,7 @@
 <?php
 namespace app\index\controller;
 
-use app\index\mode\Mindex;
+use app\index\model\Mindex;
 use think\Controller;
 use think\Session;
 use think\Request;
