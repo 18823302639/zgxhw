@@ -12,6 +12,16 @@ use think\Db;
 
 class ModelColumn extends Model
 {
+    //前置操作
+    protected $beforeActionList = [
+        ['sele'] => ['only'=>'artice_adupd,artice_addel'],
+    ];
+
+    //前置查询
+    public function sele(){
+        $arr = Db::table('admincolumn')->select();
+        return $arr;
+    }
 
     //添加栏目
     public function mar_add(){
@@ -25,9 +35,6 @@ class ModelColumn extends Model
 
             $arr = Db::table('admincolumn')->select();
             return $this->sele($arr);
-
-
-
     }
 
     public function sele($arr,$pid=0,$laver=0){
@@ -44,42 +51,15 @@ class ModelColumn extends Model
         return $data;
 
     }
-
-    public function selec($arr,$id,$pid=0,$laver=0){
-        static $data = array();
-        foreach($arr as $key=>$val){
-
-            if($val['col_pid'] == $pid ){
-                $val['laver'] = $laver;
-                $data[] = $val;
-                $this->sele($arr,$val['col_id'],$laver+1);
-            }
-        }
-        return $data;
-
-
-    }
-
+    
     //修改栏目
-    public function adupd(){
+    public function artice_adupd(){
 
     }
 
     //删除栏目
     public function artice_addel($id){
-        static $arr = array();
-        
-        foreach($data as $key=>$val){
-            if($val['col_pid'] == $id){
-                $arr = $val;
-                $obj = Db::table('admincolumn')->where('id',$id)->fetchSql(true)->delete();
-                echo $obj;die;
-                $this->artice_addel($arr,$val['col_id']);
 
-            }
-
-        }
-//        return $obj;
     }
 
 

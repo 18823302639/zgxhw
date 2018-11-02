@@ -16,6 +16,8 @@ use think\Model;
 
 class AdminColumn extends Controller {
 
+
+
     //查询栏目
     public function article_list(){
         $mc = new ModelColumn();
