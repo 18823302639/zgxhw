@@ -7,7 +7,7 @@
  */
 namespace app\admin\controller;
 
-//use app\admin\mode\Mindex;
+
 use think\Controller;
 use think\Session;
 use think\Request;
@@ -49,7 +49,8 @@ class Admin extends Controller
             $this->assign('arr',$arr);
             return $this->fetch();
         }else{
-            $this->error('您还未登陆，请登录',url('admin/login'));
+            return $this->view->fetch('admin/login');
+
         }
 
     }
@@ -66,6 +67,7 @@ class Admin extends Controller
                 ->select();
             if (!empty($arr)) {
                 Session::set('name',$data['ad_user']);
+                $this->adminLog("登陆后台管理系统");
                 $this->success('登陆成功', url('admin/index'));
             } else {
                 $this->error('用户名或者密码错误，请重新登陆');
@@ -73,6 +75,36 @@ class Admin extends Controller
         }
         return $this->fetch();
     }
+
+    //日志
+    public function adminLog($operation = 0){
+        $username = Session::get('name');
+        //设置文件路径
+        $txt = $_SERVER['DOCUMENT_ROOT']."/uploads/log";
+        //设置文件名称
+        $file_name = date("Ymd").".txt";
+        //判断文件夹是否存在，不存在创建
+        if(!file_exists($txt)){
+            mkdir($txt,0777,true);
+        }
+        //日志写入文件
+        file_put_contents($txt."/".$file_name,date('Y/m/d/ H:i:s',time()) ."   ". $username.$operation.PHP_EOL,FILE_APPEND | LOCK_EX);
+    }
+
+    //退出登陆
+    public function unses(){
+
+        if(Request::instance()->isPost()){
+            //删除session
+            Session::delete('name');
+            return true;
+        }else{
+            return false;
+        }
+
+
+    }
+
 
 
 }

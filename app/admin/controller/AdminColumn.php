@@ -17,14 +17,9 @@ use think\Model;
 class AdminColumn extends Controller {
 
 
-
     //查询栏目
     public function article_list(){
-        $mc = new ModelColumn();
-        $arr = $mc->mse();
-//            echo "<pre>";
-//        print_r($arr);
-        $this->assign("arr",$arr);
+
         return $this->fetch('admin/article_list');
     }
 
@@ -49,8 +44,7 @@ class AdminColumn extends Controller {
     //修改栏目
     public function article_upd(){
 
-
-        $this->fetch("admin/article_upd");
+        return $this->fetch("admin/article_upd");
 
     }
 

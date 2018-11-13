@@ -23,6 +23,12 @@ class Index extends Controller
         return $this->fetch();
     }
 
-
+    public function aa(){
+         $a = '1'; $b = "1998"; $c = 19; echo $a+$b+$c;
+    }
+    public function cs(){
+        var_dump($GLOBALS);
+        return $this->fetch();
+    }
 
 }
