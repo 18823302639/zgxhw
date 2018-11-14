@@ -87,7 +87,7 @@ return [
     // URL普通方式参数 用于自动生成
     'url_common_param'       => false,
     // URL参数方式 0 按名称成对解析 1 按顺序解析
-    'url_param_type'         => 0,
+    'url_param_type'         => 1,
     // 是否开启路由
     'url_route_on'           => true,
     // 路由使用完整匹配
@@ -142,10 +142,10 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-        '__PUBLIC__' => '/public',
-        '__CSS__'    => '/public/static/css',
-        '__JS__'     => '/public/static/js',
-        '__IMG__'    => '/public/static/images',
+        '__CATA__' => '/static',
+        '__CSS__'    => '/static/css',
+        '__JS__'     => '/static/js',
+        '__IMG__'    => '/static/images',
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

@@ -13,9 +13,14 @@
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select name="col_pid" class="select">
 					<option value="0">全部栏目</option>
+					{if condition="count($arr) eq 0 "}
+					{else /}
 					{volist name="arr" id="vo"}
-					<option value="{$vo.col_id}">{php} echo str_repeat("-",$vo['laver']*3); {/php} {$vo.col_user}</option>
+					<option value="{$vo.col_id}">{php} echo str_repeat("-",$vo['lavaer']*3); {/php} {$vo.col_user}</option>
 					{/volist}
+					{/if}
+
+
 				</select>
 				</span> </div>
 		</div>
