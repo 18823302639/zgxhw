@@ -17,6 +17,9 @@ use think\Model;
 
 class AdminColumn extends Controller {
 
+    public function index(){
+        return $this->article_list();
+    }
 
     //无限极分类查询
     public function article_sfl(){
@@ -60,7 +63,6 @@ class AdminColumn extends Controller {
 
     }
 
-
     //修改栏目
     public function article_upd($col_id=0){
 
@@ -83,17 +85,41 @@ class AdminColumn extends Controller {
 
     //删除栏目
     public function article_del($id=0){
-
         $arr = $this->article_sfl();
         $mc = new ModelColumn();
         $obj = $mc->artice_addel($id,$arr);
-//        var_dump($obj);die;
         if($obj){
-            $this->success('删除成功',url('AdminColumn/article_list'));
+                $this->success('删除成功',url('AdminColumn/article_list'));
         }else{
             $this->error("删除失败");
         }
+    }
 
+    //文章管理
+    public function article_index(){
+
+        $arr = Db::table('adminarticle')->where('article_flag',0)->select();
+        $this->assign('arr',$arr);
+        return $this->view->fetch('admin/article_index');
+
+    }
+
+    //添加文章
+    public function articles_add(){
+
+        if(Request::instance()->isPost()){
+            $data = input('post.');
+            print_r($data);die;
+            $res = Db::table('adminarticle')->insert($data);
+            if($res){
+                $this->success("添加成功，正在跳转请稍等……",ulr('article_index'));
+            }else{
+                $this->error("添加失败，请稍等……");
+            }
+        }
+        $arr = $this->article_sfl();
+        $this->assign('arr',$arr);
+        return $this->view->fetch('admin/articles_add');
     }
 
 

@@ -35,7 +35,6 @@ class ModelColumn extends Model
         $arr1 = $this->mar_sel();
         static $data = [];
         foreach($arr1 as $key=>$val){
-
             if($val['col_pid'] == $id ){
                 $val['lavaer'] = $lavaer;
                 $data[] = $val;
@@ -48,15 +47,19 @@ class ModelColumn extends Model
     //删除
     public function artice_addel($id,$arr){
         var_dump($id);
-//        var_dump($arr);die;
-        static $res = [];
-        foreach($arr as $key=>$val){
-            if($val['col_pid'] == $id ){
-                $res = Db::table('admincolumn')->where('col_pid',$id)->delete();
-                $this->artice_addel($val['col_id'],$arr);
+        $obj = Db::table('admincolumn')->where('col_pid',$id)->select();
+        if($obj){
+            static $res = null;
+            foreach($arr as $key=>$val){
+                if($val['col_pid'] == $id ){
+                    $res[] = Db::table('admincolumn')->where('col_pid',$id)->delete();
+                    $this->artice_addel($val['col_id'],$arr);
+                }
             }
         }
-        return $res;
+
+        $are = Db::table('admincolumn')->where('col_id',$id)->delete();
+        return $are;
 
     }
 
