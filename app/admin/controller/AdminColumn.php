@@ -12,7 +12,7 @@ use app\admin\model\ModelColumn;
 use think\Db;
 use think\Request;
 use think\Controller;
-use think\Model;
+
 
 
 class AdminColumn extends Controller {
@@ -109,13 +109,29 @@ class AdminColumn extends Controller {
 
         if(Request::instance()->isPost()){
             $data = input('post.');
-            print_r($data);die;
-            $res = Db::table('adminarticle')->insert($data);
-            if($res){
-                $this->success("添加成功，正在跳转请稍等……",ulr('article_index'));
-            }else{
-                $this->error("添加失败，请稍等……");
+
+            $file = $data['article_img'];
+            //路径
+            $filename = $_SERVER['DOCUMENT_ROOT']."/uploads/".date('Ymd') ;
+            echo $filename;die;
+            if(!file_exists($filename)){
+                mkdir($filename,0777,true);
             }
+            $file1 = move_uploaded_file($file,$filename);
+
+            if($file1){
+                $res = Db::table('adminarticle')->insert($data);
+                if($res){
+                    $this->success("添加成功，正在跳转请稍等……",url('article_index'));
+                }else{
+                    $this->error("添加失败，请稍等……");
+                }
+            }else {
+                $this->error("图片上传失败，请重新上传……");
+            }
+
+
+
         }
         $arr = $this->article_sfl();
         $this->assign('arr',$arr);
