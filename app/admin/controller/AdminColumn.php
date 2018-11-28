@@ -68,7 +68,6 @@ class AdminColumn extends Controller {
 
         if(Request::instance()->isPost()){
             $data = input('post.');
-//            print_r($data);die;
             $res = Db::table('admincolumn')->where('col_id',$data['col_id'])->update(['col_user'=>$data['col_user']]);
             if($res){
                 $this->success('修改成功，正在跳转……',url('AdminColumn/article_list'));
@@ -103,6 +102,24 @@ class AdminColumn extends Controller {
         return $this->view->fetch('admin/article_index');
 
     }
+
+    //查看详细文章内容
+    public function articles_select($article_id){
+
+        $res = Db::table('adminarticle')->where('article_id',$article_id)->find();
+        $this->assign("res",$res);
+        return $this->view->fetch("admin/article_select");
+
+    }
+
+    //修改文章
+    public function articles_upd(){
+
+        $mc = new ModelCoulumn();
+        $res = $mc->articles_adsel();
+
+    }
+
 
     //添加文章
     public function articles_add(){

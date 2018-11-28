@@ -15,7 +15,7 @@ use think\Db;
 class ModelColumn extends Model
 {
 
-    //添加数据
+    //添加栏目
     public function mar_add(){
         $data = input('post.');
         $res = Db::table('admincolumn')->insert($data);
@@ -23,16 +23,17 @@ class ModelColumn extends Model
 
     }
 
-    //查询数据
-    public function mar_sel(){
-       $arr = Db::table('admincolumn')->select();
-        return $arr;
+    //查询全部栏目/文章
+    public function mar_sel($table){
+       $arr = Db::table($table)->select();
 
+        return $arr;
     }
+
 
     //无限极分类查询
     public function mar_sfl($arr=[],$id=0,$lavaer=0){
-        $arr1 = $this->mar_sel();
+        $arr1 = $this->mar_sel(admincolumn);
         static $data = [];
         foreach($arr1 as $key=>$val){
             if($val['col_pid'] == $id ){
@@ -44,7 +45,7 @@ class ModelColumn extends Model
         return $data;
     }
 
-    //删除
+    //删除栏目
     public function artice_addel($id,$arr){
         var_dump($id);
         $obj = Db::table('admincolumn')->where('col_pid',$id)->select();
@@ -62,5 +63,20 @@ class ModelColumn extends Model
         return $are;
 
     }
+
+
+    //查询全部文章
+    public function articles_adsels(){
+        $arr = Db::table('adminarticle')->select();
+        return $arr;
+    }
+
+
+    //查询单条文章信息
+    public function articles_adsel(){
+        $res = Db::table('adminarticle')->where("article_id",$article_id)->find();
+        return $res;
+    }
+
 
 }
