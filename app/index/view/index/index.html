@@ -1,147 +1,608 @@
-{extend name="/index/base" /}
-{block name="body"}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <title>首页</title>
+    <meta name="keywords" content="关键词,5个左右,单个8汉字以内">
+    <meta name="description" content="网站描述，字数尽量空制在80个汉字，160个字符以内！">
+    <link rel="Bookmark" href="favicon.ico" >
+    <link rel="Shortcut Icon" href="favicon.ico" />
+    <link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+    <script  href="__JS__/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="__CSS__/style.css"  /><!--自己的样式-->
+    <!--icon样式-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_952711_rp530117mw.css">
+    <!--轮播图-->
+    <style type="text/css">
+        * { margin:0; padding:0;}
+        body { font-size:12px;}
+        .box {height:150px; float:left; width:95%; overflow: hidden; position:relative; }
+        .box li { display:block; float:left; margin-left:5px; margin-right:5px;/* width:100px; height:70px;*/background:#BBB;font-size:50px;color:#ccc;line-height:66px;text-decoration:none;text-align:center; cursor:pointer;}
+        .box li:hover { /*color:#999;*/ }
+        .box li.active { background-position:-174px 0; color:#555;cursor:default;}
+        .boxx {height:300px; float:left; width:95%; overflow: hidden; position:relative; }
+        .boxx li { display:block; float:left; margin-left:5px; margin-right:5px;/* width:100px; height:70px;*/text-decoration:none;text-align:center; cursor:pointer;}
+        .boxx li:hover { /*color:#999;*/ }
+        .boxx li.active { background-position:-174px 0; color:#555;cursor:default;}
+
+        i.prev, i.next { display:block;width:23px;height:43px; float:left; margin:15px 0 0 0; cursor:pointer;font-size:30px;}
+        i.prevv, i.nextt { display:block;width:23px;height:43px; float:left; margin:15px 0 0 0; cursor:pointer;font-size:30px;}
+        .center-too i {margin-top:125px;}
+        .center-three i {color:#000;width:25px;margin-top:100px;}
+        i.next {width:25px;height:25px;}
+        .scroll_list{ width:1000em; position:absolute; }
+        .scroll_listt{ width:1000em; position:absolute; }
+    </style>
+    <!-- 引入jQuery -->
+    <script src="http://jt.875.cn/js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+            var page= 1;
+            var i = 4;//每版四个图片
+            //向右滚动
+            $(".next").click(function(){ //点击事件
+                var v_wrap = $(".scroll");//$(this).parents(".scroll"); // 根据当前点击的元素获取到父元素
+                var v_show = v_wrap.find(".scroll_list"); //找到视频展示的区域
+                var v_cont = v_wrap.find(".box"); //找到视频展示区域的外围区域
+                var v_width = v_cont.width();
+                var len = v_show.find("li").length; //我的视频图片个数
+                var page_count = Math.ceil(len/i); //只要不是整数，就往大的方向取最小的整数
+                if(!v_show.is(":animated")){
+                    if(page == page_count){
+                        // v_show.animate({left:'0px'},"slow");
+                        // console.log("1"+page);
+                        // page =1;
+                    }else{
+                        v_show.animate({left:'-='+v_width},"slow");
+                        console.log("2"+v_width);
+                        page++;
+                    }
+                }
+            });
+
+            //向左滚动
+            $(".prev").click(function(){ //点击事件
+                var v_wrap = $(".scroll");//$(this).parents(".scroll").siblings(); // 根据当前点击的元素获取到父元素
+                // console.log(v_wrap);
+                var v_show = v_wrap.find(".scroll_list"); //找到视频展示的区域
+                var v_cont = v_wrap.find(".box"); //找到视频展示区域的外围区域
+                var v_width = v_cont.width();
+                var len = v_show.find("li").length; //我的视频图片个数
+                var page_count = Math.ceil(len/i); //只要不是整数，就往大的方向取最小的整数
+                if(!v_show.is(":animated")){
+                    if(page == 1){
+                        // v_show.animate({left:'-='+ v_width*(page_count-1)},"slow");
+                        // console.log("分享"+v_width*(page_count-1));
+                        // page =page_count;
+                    }else{
+                        v_show.animate({left:'+='+ v_width},"slow");
+                        console.log("4"+v_width);
+                        page--;
+                    }
+                }
+            });
+
+            //向右滚动
+            $(".nextt").click(function(){ //点击事件
+                var v_wrap = $(".scrolll");//$(this).parents(".scroll"); // 根据当前点击的元素获取到父元素
+                var v_show = v_wrap.find(".scroll_listt"); //找到视频展示的区域
+                var v_cont = v_wrap.find(".boxx"); //找到视频展示区域的外围区域
+                var v_width = v_cont.width();
+                var len = v_show.find("li").length; //我的视频图片个数
+                var page_count = Math.ceil(len/i); //只要不是整数，就往大的方向取最小的整数
+                if(!v_show.is(":animated")){
+                    if(page == page_count){
+                        // v_show.animate({left:'0px'},"slow");
+                        // console.log("1"+page);
+                        // page =1;
+                    }else{
+                        v_show.animate({left:'-='+v_width},"slow");
+                        console.log("2"+v_width);
+                        page++;
+                    }
+                }
+            });
+
+            //向左滚动
+            $(".prevv").click(function(){ //点击事件
+                var v_wrap = $(".scrolll");//$(this).parents(".scroll").siblings(); // 根据当前点击的元素获取到父元素
+                // console.log(v_wrap);
+                var v_show = v_wrap.find(".scroll_listt"); //找到视频展示的区域
+                var v_cont = v_wrap.find(".boxx"); //找到视频展示区域的外围区域
+                var v_width = v_cont.width();
+                var len = v_show.find("li").length; //我的视频图片个数
+                var page_count = Math.ceil(len/i); //只要不是整数，就往大的方向取最小的整数
+                if(!v_show.is(":animated")){
+                    if(page == 1){
+                        // v_show.animate({left:'-='+ v_width*(page_count-1)},"slow");
+                        // console.log("分享"+v_width*(page_count-1));
+                        // page =page_count;
+                    }else{
+                        v_show.animate({left:'+='+ v_width},"slow");
+                        console.log("4"+v_width);
+                        page--;
+                    }
+                }
+            });
+            //向左滚动
+            // $(".prev").click(function(){ //点击事件
+            //     var v_wrap = $(this).parents(".scroll"); // 根据当前点击的元素获取到父元素
+            //     // console.log(v_wrap);
+            //     var v_show = v_wrap.find(".scroll_list"); //找到视频展示的区域
+            //     var v_cont = v_wrap.find(".box"); //找到视频展示区域的外围区域
+            //     var v_width = v_cont.width();
+            //     var len = v_show.find("li").length; //我的视频图片个数
+            //     var page_count = Math.ceil(len/i); //只要不是整数，就往大的方向取最小的整数
+            //     if(!v_show.is(":animated")){
+            //         if(page == 1){
+            //             v_show.animate({left:'-='+ v_width*(page_count-1)},"slow");
+            //             page =page_count;
+            //         }else{
+            //             v_show.animate({left:'+='+ v_width},"slow");
+            //             page--;
+            //         }
+            //     }
+            // });
+        });
+    </script>
+
+</head>
+<body class="in_body">
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container content-index">
+        <div class="col-md-3">
+            <a class="nav navbar-brand" href=""><img src="http://www.zgxjt.net/uploads/201706/594b37ebb8164.jpg" alt=""></a>
+        </div>
+
+        <div class="col-md-9 header-right">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="">网站首页</a></li>
+                <li><a href="">关于我们</a></li>
+                <li><a href="">服务领域</a></li>
+                <li><a href="">在线商城</a></li>
+                <li><a href="">在线申请</a></li>
+                <li><a href="">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div>
     <img src="__IMG__/hwbanner.jpg" alt="" style="width:100%;">
 </div>
-<div class="container-fluid">
 
-    <div class="container content-index">
+<div class="container-fluid header-content">
 
-        <div class="row layout_header text-center ">
-            <div class="col-md-5">
-                <hr>
-            </div>
-            <div class="col-md-2">
-                <p class="header-p">服务领域介绍</p>
-            </div>
-            <div class="col-md-5">
-                <hr>
-            </div>
-        </div>
-        <div class="row text-center content-home con_one ">
-            <div class="col-md-2">
-                <div class="thumbnail">
-                    <p class="cont-top">香港公司服务</p>
-                    <p class="cont-txt">
-                        中港星旗下香港政府授牌秘书公司提供公司注册、银行开户、审计、SCR等服务
-                    </p>
-                    <a target="_blank" href="">了解更多</a>
+    <div class="container">
+        <div class="row ">
+
+            <div class="col-md-6 hd_left">
+                <h3 class="page-header">集团视频</h3>
+                <div class="thumbnail header_one header_onea">
+                    <video width="100%" height="100%" controls>
+                        <source src="movie.mp4" type="video/mp4">
+                        <source src="movie.ogg" type="video/ogg">
+                        您的浏览器不支持 HTML5 video 标签。
+                    </video>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="thumbnail">
-                    <p class="cont-top">海外公司注册</p>
-                    <p class="cont-txt">
-                        全球98个主要国家均可注册，成功案例众多
+            <div class="col-md-6 hd_right">
+                <h3 class="page-header">公司简介</h3>
+                <div class="thumbnail header_one ">
+                    <p class="hdone_span">
+                        深圳市中港星海外企业服务有限公司（以下简称“中港星海外企业服务中心”）隶属于中港星集团，大陆总部位于深圳国贸大厦，海外总部设于香港九龙。下属机构包含：港星国际集团，香港标准注册中心……
                     </p>
-                    <a target="_blank" href="">了解更多</a>
+                    <a class="hdone_hra" target="_blank" href="" >查看更多</a>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="thumbnail">
-                    <p class="cont-top">海外知识产权</p>
-                    <p class="cont-txt">
-                        商标、专利、版权的申请、保护、维权等配套服务
+            <div class="col-md-6 hd_left">
+                <h3 class="page-header">行业新闻</h3>
+                <div class="thumbnail header_one hdonep">
+                    <p class="">
+                        <span class="hdonep_spanleft">中港星商城最新新闻</span> <span class="hdonep_spanright">2018-11-11</span>
                     </p>
-                    <a target="_blank" href="">了解更多</a>
+                    <p class="">
+                        <span class="hdonep_spanleft">中港星商城最新新闻</span> <span class="hdonep_spanright">2018-11-11</span>
+                    </p>
+                    <p class="">
+                        <span class="hdonep_spanleft">中港星商城最新新闻</span> <span class="hdonep_spanright">2018-11-11</span>
+                    </p>
+                    <p class="">
+                        <span class="hdonep_spanleft">中港星商城最新新闻</span> <span class="hdonep_spanright">2018-11-11</span>
+                    </p>
+                    <p class="">
+                        <span class="hdonep_spanleft">中港星商城最新新闻</span> <span class="hdonep_spanright">2018-11-11</span>
+                    </p>
+                    <a class="hdone_hra" target="_blank" href="" >查看更多</a>
+
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="thumbnail">
-                    <p class="cont-top">海外公司财税·审计</p>
-                    <p class="cont-txt">
-                        国际知名会计师事务所，熟知各国财税审计政策，专业团队帮助您企业快速发展
-                    </p>
-                    <a target="_blank" href="">了解更多</a>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="thumbnail">
-                    <p class="cont-top">银行开户</p>
-                    <p class="cont-txt">
-                        长期与众多香港及海外国际银行战略合作，为客户的资金出海提供渠道
-                    </p>
-                    <a target="_blank" href="">了解更多</a>
+            <div class="col-md-6 he_right">
+                <h3 class="page-header">团队风采</h3>
+                <div class="thumbnail header_one hdone_image">
+                    <div class="col-md-6">
+                        <img src="http://www.hkgxin.cn/htmljj/ruanzhu/question1.png" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="http://www.hkgxin.cn/htmljj/ruanzhu/question1.png" alt="">
+                    </div>
+                    <a class="hdone_hra" target="_blank" href="" >查看更多</a>
                 </div>
             </div>
 
         </div>
+    </div>
 
-        <div class="row layout_header text-center ">
-            <div class="col-md-5">
-                <hr>
-            </div>
-            <div class="col-md-2">
-                <p class="header-p">关于我们</p>
-            </div>
-            <div class="col-md-5">
-                <hr>
-            </div>
-        </div>
-        <div class="row con_too">
-            <div class="col-md-6">
-                <div class="thumbnail">
-                    <p class="cont-top">企业新闻网</p>
-                    <p class="page_header"></p>
-                    <a target="_blank" href=""><p class="cont-txt"> 你知道什么是商标驳回复审吗？ <span>2018-10-20</span> </p></a>
-                    <a target="_blank" href=""><p class="cont-txt"> 你知道什么是商标驳回复审吗？ <span>2018-10-20</span> </p></a>
-                    <a target="_blank" href=""><p class="cont-txt"> 你知道什么是商标驳回复审吗？ <span>2018-10-20</span> </p></a>
-                    <a target="_blank" href=""><p class="cont-txt"> 你知道什么是商标驳回复审吗？ <span>2018-10-20</span> </p></a>
-                    <a target="_blank" href=""><p class="cont-txt"> 你知道什么是商标驳回复审吗？ <span>2018-10-20</span> </p></a>
-                    <p class="cont-footer"><a target="_blank" href="" >MORE></a></p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="thumbnail">
-                    <p class="cont-top">服务4化</p>
-                    <p class="page_header"></p>
-                    <img src="__IMG__/hw_img11.jpg" alt="">
-                </div>
-            </div>
+</div>
 
-        </div>
-
-        <div class="row layout_header text-center ">
-            <div class="col-md-5">
-                <hr>
+<div class="container-fluid center-one">
+    <div class="container">
+        <div class="row">
+            <h3 class="center_header">服务领域介绍</h3>
+            <div class="center_back">
+                <img style="width:100%;" src="/uploads/images/hwin_img10.jpg" alt="">
             </div>
-            <div class="col-md-2">
-                <p class="header-p">战略合作伙伴</p>
-            </div>
-            <div class="col-md-5">
-                <hr>
-            </div>
-        </div>
-        <div class="row con_three ">
-            <section id="features" class="blue">
-                <div class="content">
-
-                    <div class="slider multiple-items">
-                        <div> <img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""> </div>
-                        <div><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></div>
-                        <div><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></div>
-                        <div><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></div>
-                        <div><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></div>
-                        <div><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></div>
-                        <div><img src="http://www.zgxjt.net/uploads/201810/5bcece7de492c.jpg" alt=""></div>
-                        <div><img src="http://www.zgxjt.net/uploads/201810/5bcece6599fda.jpg" alt=""></div>
-                        <div><img src="http://www.zgxjt.net/uploads/201810/5bcece55bb912.jpg" alt=""></div>
+            <div class="col-md-4">
+                <div class="cenone_back " style="background: url('/uploads/images/hwin_img2.jpg');">
+                    <div class="cenone_apity text-center">
+                        <span class="cenone_header">香港公司服务</span>
+                        <span class="cenone_header1">
+                            SCR建册、公司注册、<br>
+                            水牌展示知识产权、<br>
+                            银行开户、年审·审计等
+                        </span>
+                        <a target="_blank" href="" class="hdone_hra">了解更多</a>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="col-md-4">
+                <div class="cenone_back"  style="background: url('/uploads/images/hwin_img3.jpg');" >
+                    <div class="cenone_apity text-center">
+                        <span class="cenone_header">香港公司服务</span>
+                        <span class="cenone_header1">
+                            SCR建册、公司注册、<br>
+                            水牌展示知识产权、<br>
+                            银行开户、年审·审计等
+                        </span>
+                        <a target="_blank" href="" class="hdone_hra">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cenone_back"  style="background: url('/uploads/images/hwin_img4.jpg');">
+                    <div class="cenone_apity text-center">
+                        <span class="cenone_header">香港公司服务</span>
+                        <span class="cenone_header1">
+                            SCR建册、公司注册、<br>
+                            水牌展示知识产权、<br>
+                            银行开户、年审·审计等
+                        </span>
+                        <a target="_blank" href="" class="hdone_hra">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cenone_back"  style="background: url('/uploads/images/hwin_img5.jpg');">
+                    <div class="cenone_apity text-center">
+                        <span class="cenone_header">香港公司服务</span>
+                        <span class="cenone_header1">
+                            SCR建册、公司注册、<br>
+                            水牌展示知识产权、<br>
+                            银行开户、年审·审计等
+                        </span>
+                        <a target="_blank" href="" class="hdone_hra">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cenone_back"  style="background: url('/uploads/images/hwin_img6.jpg');">
+                    <div class="cenone_apity text-center">
+                        <span class="cenone_header">香港公司服务</span>
+                        <span class="cenone_header1">
+                            SCR建册、公司注册、<br>
+                            水牌展示知识产权、<br>
+                            银行开户、年审·审计等
+                        </span>
+                        <a target="_blank" href="" class="hdone_hra">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cenone_back"  style="background: url('/uploads/images/hwin_img7.jpg');">
+                    <div class="cenone_apity text-center">
+                        <span class="cenone_header">香港公司服务</span>
+                        <span class="cenone_header1">
+                            SCR建册、公司注册、<br>
+                            水牌展示知识产权、<br>
+                            银行开户、年审·审计等
+                        </span>
+                        <a target="_blank" href="" class="hdone_hra">了解更多</a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
+
+<div class="container-fluid center-too">
+    <div class="container">
+        <h3 class="center_header text-center">服务优势</h3>
+        <div class="center_back">
+            <img src="/uploads/images/hwin_img9.jpg" alt="">
+        </div>
+        <div class="row centxt-align">
+            <div class="col-md-3">
+                <div class="thumbnail text-center">
+                    <img class="center-img" src="http://www.hkgxin.cn/htmljj/ruanzhu/question2.png" alt="">
+                    <span class="cenone_header">企业规模大</span>
+                    <span class="cenone_header1">
+                            在深圳罗湖及香港设有总部<br>
+                            旗下设有两中心三大事务所<br>
+                           公司成员超200
+                        </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail text-center">
+                    <img class="center-img" src="http://www.hkgxin.cn/htmljj/ruanzhu/question2.png" alt="">
+                    <span class="cenone_header">企业规模大</span>
+                    <span class="cenone_header1">
+                            在深圳罗湖及香港设有总部<br>
+                            旗下设有两中心三大事务所<br>
+                           公司成员超200
+                        </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail text-center">
+                    <img class="center-img" src="http://www.hkgxin.cn/htmljj/ruanzhu/question2.png" alt="">
+                    <span class="cenone_header">企业规模大</span>
+                    <span class="cenone_header1">
+                            在深圳罗湖及香港设有总部<br>
+                            旗下设有两中心三大事务所<br>
+                           公司成员超200
+                        </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail text-center">
+                    <img class="center-img" src="http://www.hkgxin.cn/htmljj/ruanzhu/question2.png" alt="">
+                    <span class="cenone_header">企业规模大</span>
+                    <span class="cenone_header1">
+                            在深圳罗湖及香港设有总部<br>
+                            旗下设有两中心三大事务所<br>
+                           公司成员超200
+                        </span>
+                </div>
+            </div>
+        </div>
+        <h3 class="center_header text-center">战略合作伙伴</h3>
+        <div class="center_back">
+            <img src="/uploads/images/hwin_img9.jpg" alt="">
+        </div>
+        <div class="row" style="margin-top:45px;">
+            <div class="col-md-12">
+                <div class="scroll" style="margin:0 auto;width:1050px;overflow: hidden;">
+                    <!-- "prev page" link -->
+                    <i class="iconfont icon-zuo-copy prev"></i>
+                    <div class="box">
+                        <div class="scroll_list">
+                            <ul>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- "next page" link -->
+                    <i class="iconfont icon-zuo next"></i>
+
+                </div>
+                <div class="scroll" style="margin:0 auto;width:1050px;overflow: hidden;">
+                    <!-- "prev page" link -->
+                    <i class="iconfont icon-zuo-1copy prev"></i>
+                    <div class="box">
+                        <div class="scroll_list">
+                            <ul>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecfb95373f.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf9e6f1fb.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf811a55d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf5a6e19d.jpg" alt=""></li>
+                                <li><img src="http://www.zgxjt.net/uploads/201810/5bcecf394252e.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- "next page" link -->
+                    <i class="iconfont icon-zu1o next"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid center-three">
+    <div class="container">
+        <div class="row">
+            <h3 class="center_header">专家团队风采</h3>
+            <div class="center_back">
+                <img src="/uploads/images/hwin_img10.jpg" alt="">
+            </div>
+            <div class="col-md-12">
+                <div class="scrolll" style="margin:0 auto;width:1050px;overflow: hidden;">
+                    <!-- "prev page" link -->
+                    <i class="iconfont icon-zuo-copy prevv"></i>
+                    <div class="boxx">
+                        <div class="scroll_listt">
+                            <ul>
+                                <li>
+                                    <div class="thumbnail">
+                                        <img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt="">
+                                        <h4>肖武文</h4>
+                                        <p class="centh_open"> <span class="center_span">任职职位:</span> <span class=" center_spcen center_spanb">资深审计专家</span> </p>
+                                        <p class="centh_open"> <span class="center_span">从业年限:</span> <span class="center_spcen">13年</span> </p>
+                                        <p class="centh_open"> <span class="center_span">擅长领域:</span> <span class="center_spcen center_spcenv">海外公司做账审计、
+税务规划税务规划税务规划税务规划</span> </p>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="thumbnail">
+                                        <img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt="">
+                                        <h4>肖武文</h4>
+                                        <p class="centh_open"> <span class="center_span">任职职位:</span> <span class=" center_spcen center_spanb">资深审计专家</span> </p>
+                                        <p class="centh_open"> <span class="center_span">从业年限:</span> <span class="center_spcen">13年</span> </p>
+                                        <p class="centh_open"> <span class="center_span">擅长领域:</span> <span class="center_spcen center_spcenv">海外公司做账审计、
+税务规划税务规划税务规划税务规划</span> </p>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="thumbnail">
+                                        <img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt="">
+                                        <h4>肖武文</h4>
+                                        <p class="centh_open"> <span class="center_span">任职职位:</span> <span class=" center_spcen center_spanb">资深审计专家</span> </p>
+                                        <p class="centh_open"> <span class="center_span">从业年限:</span> <span class="center_spcen">13年</span> </p>
+                                        <p class="centh_open"> <span class="center_span">擅长领域:</span> <span class="center_spcen center_spcenv">海外公司做账审计、
+税务规划税务规划税务规划税务规划</span> </p>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="thumbnail">
+                                        <img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt="">
+                                        <h4>肖武文</h4>
+                                        <p class="centh_open"> <span class="center_span">任职职位:</span> <span class=" center_spcen center_spanb">资深审计专家</span> </p>
+                                        <p class="centh_open"> <span class="center_span">从业年限:</span> <span class="center_spcen">13年</span> </p>
+                                        <p class="centh_open"> <span class="center_span">擅长领域:</span> <span class="center_spcen center_spcenv">海外公司做账审计、
+税务规划税务规划税务规划税务规划</span> </p>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="thumbnail">
+                                        <img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt="">
+                                        <h4>肖武文</h4>
+                                        <p class="centh_open"> <span class="center_span">任职职位:</span> <span class=" center_spcen center_spanb">资深审计专家</span> </p>
+                                        <p class="centh_open"> <span class="center_span">从业年限:</span> <span class="center_spcen">13年</span> </p>
+                                        <p class="centh_open"> <span class="center_span">擅长领域:</span> <span class="center_spcen center_spcenv">海外公司做账审计、
+税务规划税务规划税务规划税务规划</span> </p>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="thumbnail">
+                                        <img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt="">
+                                        <h4>肖武文</h4>
+                                        <p class="centh_open"> <span class="center_span">任职职位:</span> <span class=" center_spcen center_spanb">资深审计专家</span> </p>
+                                        <p class="centh_open"> <span class="center_span">从业年限:</span> <span class="center_spcen">13年</span> </p>
+                                        <p class="centh_open"> <span class="center_span">擅长领域:</span> <span class="center_spcen center_spcenv">海外公司做账审计、
+税务规划税务规划税务规划税务规划</span> </p>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="thumbnail">
+                                        <img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt="">
+                                        <h4>肖武文</h4>
+                                        <p class="centh_open"> <span class="center_span">任职职位:</span> <span class=" center_spcen center_spanb">资深审计专家</span> </p>
+                                        <p class="centh_open"> <span class="center_span">从业年限:</span> <span class="center_spcen">13年</span> </p>
+                                        <p class="centh_open"> <span class="center_span">擅长领域:</span> <span class="center_spcen center_spcenv">海外公司做账审计、
+税务规划税务规划税务规划税务规划</span> </p>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="thumbnail">
+                                        <img src="http://www.zgxjt.net/uploads/201810/5bcecfcf9331d.jpg" alt="">
+                                        <h4>肖武文</h4>
+                                        <p class="centh_open"> <span class="center_span">任职职位:</span> <span class=" center_spcen center_spanb">资深审计专家</span> </p>
+                                        <p class="centh_open"> <span class="center_span">从业年限:</span> <span class="center_spcen">13年</span> </p>
+                                        <p class="centh_open"> <span class="center_span">擅长领域:</span> <span class="center_spcen center_spcenv">海外公司做账审计、
+税务规划税务规划税务规划税务规划</span> </p>
+                                    </div>
+
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- "next page" link -->
+                    <i class="iconfont icon-zuo nextt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-        <div class="row layout_header text-center ">
-            <div class="col-md-5">
-                <hr>
-            </div>
-            <div class="col-md-2">
-                <p class="header-p">服务案例</p>
-            </div>
-            <div class="col-md-5">
-                <hr>
+<div class="container-fluid center-four">
+    <div class="container">
+
+        <div class="row">
+            <h3 class="center_header">服务案例</h3>
+            <div class="center_back">
+                <img src="/uploads/images/hwin_img10.jpg" alt="">
             </div>
         </div>
         <div class="row con_four text-center">
@@ -172,99 +633,12 @@
 
 
         </div>
-
-        <div class="row layout_header text-center ">
-            <div class="col-md-5">
-                <hr>
-            </div>
-            <div class="col-md-2">
-                <p class="header-p">专家团队风采</p>
-            </div>
-            <div class="col-md-5">
-                <hr>
-            </div>
-        </div>
-        <div class="row con_six">
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <p class="cont-top">任职职位： <span class="cont-color">资深审计专家</span> </p>
-                    <p class="cont-top">从业年限： <span class="cont-span">１３年</span> </p>
-                    <p class="cont-top">擅长领域： <span class="cont-span">海外公司做账审计</span> </p>
-                    <p class="cont-topa"> 税务规划 </p>
-                    <p class="cont-top">我是  <span class="cont-color">肖武文</span> </p>
-                    <img src="__IMG__/hw_img5.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <p class="cont-top">任职职位： <span class="cont-color">审计专家</span> </p>
-                    <p class="cont-top">从业年限： <span class="cont-span">7年</span> </p>
-                    <p class="cont-top">擅长领域： <span class="cont-span">海外公司年审•审计</span> </p>
-                    <p class="cont-topa"> &nbsp; </p>
-                    <p class="cont-top">我是  <span class="cont-color">陈欣</span> </p>
-                    <img src="__IMG__/hw_img6.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <p class="cont-top">任职职位： <span class="cont-color">高级专利代理人</span> </p>
-                    <p class="cont-top">从业年限： <span class="cont-span">9年</span> </p>
-                    <p class="cont-top">擅长领域： <span class="cont-span">发明专利、版权</span> </p>
-                    <p class="cont-topa"> 国际发明专利 </p>
-                    <p class="cont-top">我是  <span class="cont-color">刘早立</span> </p>
-                    <img src="__IMG__/hw_img7.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <p class="cont-top">任职职位： <span class="cont-color">资深专利代理人</span> </p>
-                    <p class="cont-top">从业年限： <span class="cont-span">10年</span> </p>
-                    <p class="cont-top">擅长领域： <span class="cont-span">海内外专利申请</span> </p>
-                    <p class="cont-topa"> 保护及维权 </p>
-                    <p class="cont-top">我是  <span class="cont-color">侯艺</span> </p>
-                    <img src="__IMG__/hw_img8.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <p class="cont-top">任职职位： <span class="cont-color">企业运营专家</span> </p>
-                    <p class="cont-top">从业年限： <span class="cont-span">8年</span> </p>
-                    <p class="cont-top">擅长领域： <span class="cont-span">海外公司注册</span> </p>
-                    <p class="cont-topa"> 商标保护、专利保护 </p>
-                    <p class="cont-top">我是  <span class="cont-color">王文娟</span> </p>
-                    <img src="__IMG__/hw_img9.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <p class="cont-top">任职职位： <span class="cont-color">企业运营专家</span> </p>
-                    <p class="cont-top">从业年限： <span class="cont-span">8年</span> </p>
-                    <p class="cont-top">擅长领域： <span class="cont-span">海外公司注册、银行开户</span> </p>
-                    <p class="cont-topa"> &nbsp; </p>
-                    <p class="cont-top">我是  <span class="cont-color">熊丹</span> </p>
-                    <img src="__IMG__/hw_img10.jpg" alt="">
-                </div>
-            </div>
-
-        </div>
-
-
     </div>
-
 </div>
 
+</body>
+</html>
 
-
-<link rel="stylesheet" href="__CSS__/monokai.min.css">
-<link rel="stylesheet" type="text/css" href="__CATA__/slick/slick.css"/>
-<script src="__JS__/modernizr.min.js" type="text/javascript"></script>
-
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="__JS__/highlight.min.js"></script>
-<script type="text/javascript" src="__CATA__/slick/slick.js"></script>
-<script type="text/javascript" src="__JS__/scripts.js"></script>
-{/block}
 
 
 
