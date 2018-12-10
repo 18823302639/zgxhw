@@ -5,3 +5,4 @@ composer.lock
 /vendor/
 /runtime/
 /extend/
+/public/uploads/
