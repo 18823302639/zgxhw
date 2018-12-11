@@ -23,13 +23,37 @@ class Index extends Controller
         return $this->fetch();
     }
 
+    public function base_the(){
+        return $this->fetch();
+    }
+
     //海外公司
     public function register(){
         return $this->fetch();
     }
 
+    //海外商标
+    public function for_trade(){
+        return $this->fetch();
+    }
+
+    //海外专利
+    public function for_patent(){
+        return $this->fetch();
+    }
+
     //香港公司年审
     public function review(){
+        return $this->fetch();
+    }
+
+    //香港公司服务
+    public function service(){
+        return $this->fetch();
+    }
+
+    //香港公司年审-审计
+    public function audit(){
         return $this->fetch();
     }
 

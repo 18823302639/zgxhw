@@ -2,7 +2,10 @@
     padding:0px;
     margin:0px;
     font-size:14px;
+    letter-spacing:1px;
 }
+h3 {font-size:30px;margin-top:45px;text-align:center;margin-bottom:28px;}
+h5 {font-size:16px;font-weight:600;margin-top:12px;}
 a {text-decoration: none;}
 a:hover {text-decoration: none;}
 .navbar-brand {height:100%;}
@@ -64,7 +67,7 @@ a:hover {text-decoration: none;}
 .center-too .center_back {width:205px;height:15px;margin:auto;border:0px solid red;}
 .center-too .cenone_header {font-size:18px;font-weight:600;padding-top:15px;display: block;}
 .center-too .cenone_header1 {line-height:28px;}
-.center-too .centxt-align {margin-top:105px;}
+.center-too .centxt-align {margin-top:25px;}
 
 
 /****
@@ -99,7 +102,7 @@ a:hover {text-decoration: none;}
 
 
 /****** 海外公司注册 ******/
-.reg_one h3 {margin-top:45px;text-align:center;margin-bottom:28px;}
+
 .reg_one .col-md-2 {width:19.999%;}
 .reg_one .thumbnail {margin-top:35px;}
 .reg_one .reg_cenradio {
@@ -125,17 +128,18 @@ a:hover {text-decoration: none;}
 .reg_three h5 {font-size:15px;font-weight:600;}
 .reg_three i {font-size:38px;color:#0e74b3;}
 .reg_three hr {width:35px;border:1px solid #c5c5c6;margin:auto;margin-top:5px;margin-bottom:10px;}
-.reg_three p {padding:2px 8px;text-align:left;}
+.reg_three p {padding:2px 8px;text-align:left;min-height:65px;}
 .reg_four h3 {margin-top:45px;text-align:center;margin-bottom:28px;}
 .reg_four .thumbnail {overflow:hidden;}
 .reg_four h5 {font-size:15px;font-weight:600;}
 .reg_four hr {width:105px;border-color:#c5c5c6;margin:5px 0px;}
 .reg_four p {height:125px;border:0px solid red;}
 .reg_sex h3 {margin-top:45px;text-align:center;margin-bottom:28px;}
-.reg_sex h5 {font-size:18px;font-weight:600;}
-.reg_sex hr {margin:5px;border-color:#c5c5c6;}
-.reg_sex p {line-height:25px;}
-.reg_sex .regsex_imga {height:160px;}
+.reg_sex h5 {font-size:18px !important;font-weight:600;padding:5px;}
+.reg_sex hr {border-color:#c5c5c6;margin:3px auto 15px;}
+.reg_sex p {line-height:25px;min-height:75px;margin-top:8px;}
+.reg_sex .regsex_imga {height:180px;}
+.reg_sex .regsex_imgb {margin-top:8px;}
 .reg_fing h3 {margin-top:45px;text-align:center;margin-bottom:28px;}
 .reg_fing .thumbnail {overflow: hidden;}
 .reg_fing h5 {font-size:15px;font-weight:600;}
@@ -145,11 +149,123 @@ a:hover {text-decoration: none;}
 
 
 /*******香港公司年审*******/
-.review_body h3 {margin-top:45px;text-align:center;margin-bottom:28px;}
+
+.rev_banner img {width:100%;}
+.rev_ones .rev_radio {width:75px;height:75px;border:1px solid #c5c5c6;line-height:75px;border-radius:85px;margin:auto;margin-top:-38px;background: #fff;}
+.rev_ones .thumbnail {margin-top:42px;padding-bottom:15px;}
+.rev_ones i {font-size:35px;color:#0e74b3;}
+.rev_ones h5 {margin-top:14px;}
+.rev_ones p {text-align:left;padding: 2px 8px;min-height:48px;}
+.rev_ones hr {width:75px;border:1px solid #c5c5c6;margin:5px auto;}
+.rev_toos .thumbnail {padding:0px;}
+.rev_toos .rev-text {background: #0e74b3;color:#fff;font-size:16px;font-weight:600;padding:18px 0px;letter-spacing: 1px;}
+.rev_toos .rev_teicon {padding:10px 0; }
+.rev_toos .rev_teicon i {font-size:35px;color:#0e74b3;}
+.rev_threes .rev_radio {width:75px;height:35px;border:1px solid #c5c5c6;line-height:35px;border-radius:85px;margin:auto;margin-top:-18px;background: #0e74b3;color:#fff;}
+.rev_threes .thumbnail {margin-top:42px;padding-bottom:15px;}
+.rev_threes i {font-size:35px;color:#0e74b3;}
+.rev_threes h5 {margin-top:14px;}
+.rev_threes p {text-align:left;padding: 2px 8px;min-height:68px;border:0px solid red;}
+.rev_threes hr {width:75px;border:1px solid #c5c5c6;margin:5px auto;}
+.rev_fours .thumbnail {background: #cfe3f0;margin-top:10px;}
+.rev_fours .rev-tespan {font-size:16px;font-weight:600;letter-spacing:1px;color:#000;display:block;padding:12px 0px;}
+.rev_topimg {margin-top:55px;}
+.rev_fours .rev_padda {color:#fff;display:block;width:680px;padding:15px 15px;background: #be2c2f;border-radius:15px;margin:18px auto;font-size:18px;}
+.rev_seven .thumbnail {padding:0px;}
+.rev_seven .revsev-text {text-align:center;font-size:18px;padding:14px 0;background: #0e74b3;color:#fff;}
+.rev_seven .resvn-center {padding:3px 16px;text-align:left;line-height:25px;min-height:115px;border:0px solid red;}
 
 
+/******香港公司服务*******/
+
+.serv_ones {margin-top:55px;}
+.serv_ones i {font-size:43px;}
+.serv_ones .col-md-4 .thumbnail {padding:8px 4px;}
+.serv_ones .seon-backa {background: #d7e0e5;}
+.serv_ones .seon-backa  i {color:#94adbc;}
+.serv_ones .col-md-4 p {font-size:16px;font-weight:600;margin-top:8px;min-height:35px;}
+.serv_ones p small {font-weight:initial;}
+.serv_ones .seon-backb {padding:8px 4px 8px 4px;background: #eadee2;}
+.serv_ones .seon-backb p {margin-bottom:0px;}
+.serv_ones .seon-backb  i {color:#c5a3ae;}
+.serv_ones .seon-backc {background: #e7dbe9;}
+.serv_ones .seon-backc  i {color:#bf9bc3;}
+.serv_ones .col-md-3 .thumbnail {padding:8px 4px;}
+.serv_ones .col-md-3 p {font-size:16px;font-weight:600;margin-top:8px;}
+.serv_ones .seon-backd {background: #d3e4de}
+.serv_ones .seon-backd  i {color:#80b6a3;}
+.serv_ones .seon-backe {background: #f1e3e0}
+.serv_ones .seon-backe  i {color:#b19089;}
+.serv_ones .seon-backf {background: #ddeefe}
+.serv_ones .seon-backf  i {color:#a0b5c9;}
+.serv_ones .seon-backg {background: #ebe4d3}
+.serv_ones .seon-backg  i {color:#c2b587;}
+.serv_toos .col-md-2 {width:19.999%;margin-top:45px;}
+.serv_toos .serv-radius {width:85px;height:85px;border:1px solid #c5c5c6;background: #fff; line-height:85px;border-radius:85px;margin:-40px auto 0px;}
+.serv_toos .serv-radius i {font-size:35px;color:#0e74b3;}
+.serv_toos hr {width:55px;border:1px solid #c5c5c6;margin:0px auto;}
+.serv_toos p {text-align:left;padding:2px 8px;min-height:48px;margin-top:5px;}
+.serv_threes img {width:100%;}
+.serv_fours .scroll {border:0px solid red;  }
+.serv_fours .scroll .box {width:94%;border:0px solid red;margin-left:5px;}
+.serv_fours .scroll li {border:1px solid #ccc;margin:0px 27px 0px 33px;}
+.serv_fours .scroll i.prev, i.next {margin-top:55px !important;}
 
 
+/***** 香港公司审计*******/
+
+.aud_ones .thumbnail {margin-top:50px;}
+.aud_ones .aud-radius {width:85px;height:85px;line-height:85px;margin: auto;margin-top:-45px;border:1px solid #c5c5c6;border-radius:100px;background: #fff;}
+.aud_ones .aud-radius i {font-size:38px;color:#0e74b3;}
+.aud_ones p {font-size:16px;font-weight:600;margin-top:15px;}
+.aud_toos .thumbnail {padding:0px;}
+.aud_toos .audit-backp {padding:18px 5px ;background: #0e74b3;color:#fff;font-size:16px;font-weight:600;}
+.aud_toos .audit-text {text-align:left;padding:4px 8px;line-height:25px;min-height:115px;}
+.aud_toos a {width:220px;display: block;margin:auto;padding:5px 15px;border-radius:5px;background: #c5004a;color:#fff;}
+.aud_threes .thumbnail {padding-top:8px;}
+.aud_threes i {font-size:42px;color:#0e74b3;}
+.aud_threes h5 {margin-bottom:5px;}
+.aud_threes hr {width:55px;margin:5px auto 8px;border:2px solid #ccc;}
+.aud_threes p {padding:3px 8px;text-align:left;min-height:65px;}
+.aud_fours img {width:100%;}
+.aud_fours .col-md-2 {height:55px;}
+.aud_fours .audfour-texta {float:left;padding-left:15px;line-height:20px;}
+.aud_fours .audfour-textb {float:left;padding-left:10px;}
+.aud_fours .audfour-textd {float:left;padding-left:65px;}
+.aud_fours .audfour-texte {float:left;padding-left:55px;}
+.aud_fours .audfour-textf {float:left;padding-left:88px;}
+.aud_sixs .thumbnail {padding-top:8px;}
+.aud_sixs p {line-height:25px;text-align:left;}
+.aud_sixs i {font-size:42px;color:#0e74b3;}
+.aud_sixs hr {width:55px;margin:3px auto 5px;border:2px solid #ccc;}
+.aud_sixs .auds-back {background: url('/uploads/images/aud_img3.jpg')no-repeat 30px 10px;background-size: 95%;margin-top:20px;}
+.aud_sixs .auds-back .auds-left {padding-right:50px}
+.aud_sixs .auds-back .auds-center {padding-left:25px;padding-right:25px;}
+.aud_sixs .auds-back .auds-right {padding-left:50px}
+.aud_sevens .thumbnail {overflow: hidden;}
+.aud_sevens .aud-radius {width:50px;height:50px;border-radius:80px;line-height:50px;background:#0a7cdf;color:#fff;margin:-22px;text-align:right;padding:5px 15px;}
+.aud_sevens h5 {margin-top:35px;}
+.aud_sevens hr {width:95%;margin:3px auto 12px;border:1px solid #ccc;}
+.aud_sevens p {line-height:25px;text-align:left;min-height:105px;}
+
+/***********海外商标***********/
+.fort_ones .col-md-2 {width:19.9999%;margin-top:50px;}
+.fort_ones img {margin-top:-35px;}
+.fort_ones h5 {margin-top:15px;height:52px;line-height:20px;}
+.fort_ones h5 span {font-size:14px;}
+.fort_ones p span {font-size:18px;font-weight:600;color:#ec5530;}
+.fort_toos h5 {text-align:left;padding-left:15px;}
+.fort_toos .thumbnail {padding:0px;}
+.fort_toos img {text-align:right;margin-left: auto;margin-right: 0;}
+.fort_threes i {font-size:42px;color:#3389bf;}
+.fort_threes hr {width:45px;margin: -3px auto 8px;border:1px solid #ccc;}
+.fort_threes p {text-align:left;padding:4px 8px;min-height:70px;}
+.fort_fours img {width:100%;}
+.fort_sixs .scrolll {width:100% !important;}
+.fort_sixs .scrolll .boxx {height:320px;}
+.fort_sixs .scrolll .thumbnail {padding:0px;width:260px;padding-top:22px;}
+.fort_sixs .scrolll .thumbnail p {border-top:1px solid #c1c1c1;line-height:25px;margin-bottom:0px;padding:10px;margin-top:22px;}
+.fort_sixs i {margin-top:155px !important;}
 
 
 
